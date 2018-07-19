@@ -11,7 +11,7 @@ func main() {
 	greeting[0] = "Good morning!"
 	greeting[1] = "Bonjour!"
 	greeting[2] = "buenos dias!"
-	greeting[3] = "suprabadham"
+	greeting[3] = "suprabadham" // this one is out of range of the length
 
 	fmt.Println(greeting[2])
 }
