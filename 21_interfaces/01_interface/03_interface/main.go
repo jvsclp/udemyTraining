@@ -5,36 +5,36 @@ import (
 	"math"
 )
 
-type Square struct {
+type square struct {
 	side float64
 }
 
-type Shape interface {
+type shape interface {
 	area() float64
 }
 
-// another Shape
-type Circle struct {
+// another shape
+type circle struct {
 	radius float64
 }
 
-func (s Square) area() float64 {
+func (s square) area() float64 {
 	return s.side * s.side
 }
 
-// which implements the Shape interface
-func (c Circle) area() float64 {
+// which implements the shape interface
+func (c circle) area() float64 {
 	return math.Pi * c.radius * c.radius
 }
 
-func info(z Shape) {
+func info(z shape) {
 	fmt.Println(z)
 	fmt.Println(z.area())
 }
 
 func main() {
-	s := Square{10}
-	c := Circle{5}
+	s := square{10}
+	c := circle{5}
 	info(s)
 	info(c)
 }

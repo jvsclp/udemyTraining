@@ -25,7 +25,7 @@ func main() {
 	buckets := make([]int, 200)
 	// Loop over the words
 	for scanner.Scan() {
-		n := HashBucket(scanner.Text())
+		n := hashBucket(scanner.Text())
 		buckets[n]++
 	}
 	fmt.Println(buckets[65:123])
@@ -35,6 +35,6 @@ func main() {
 	// }
 }
 
-func HashBucket(word string) int {
+func hashBucket(word string) int {
 	return int(word[0])
 }
