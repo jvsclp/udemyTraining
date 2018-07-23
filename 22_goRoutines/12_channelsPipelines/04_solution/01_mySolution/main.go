@@ -3,9 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	numbers := make([]int, 100)
-	for i := 0; i < 100; i++ {
-		numbers = append(numbers, i)
+	numbers := make([]int, 0)
+	for i := 0; i < 10; i++ {
+		// Repeated number because after 25! the program goes into int overflow
+		for j := 1; j < 11; j++ {
+			numbers = append(numbers, j)
+		}
 	}
 
 	c := factorial(numbers)
@@ -15,17 +18,18 @@ func main() {
 }
 
 func factorial(n []int) chan int {
-	for _, j := range n {
-		out := make(chan int)
-		go func() {
+	out := make(chan int)
+	go func() {
+		for _, j := range n {
 			total := 1
 			for i := j; i > 0; i-- {
 				total *= i
 			}
 			out <- total
-			close(out)
-		}()
-	}
+		}
+		close(out)
+	}()
+
 	return out
 }
 
