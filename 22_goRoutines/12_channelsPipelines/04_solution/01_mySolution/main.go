@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	numbers := make([]int, 0)
+	numbers := make([]int, 0, 100)
 	for i := 0; i < 10; i++ {
 		// Repeated number because after 25! the program goes into int overflow
 		for j := 1; j < 11; j++ {
